@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Money Diary</title>
+	<link href="https://fonts.googleapis.com/css?family=Archivo+Narrow&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+
+<body>
+
+	<h1>Money Diary</h1>
+	<h3 id="pig">(´・(oo)・｀) oink oink</h3>
+	<div class="container">
+		<div>
+			<h2>Add a new expense</h2>
+		</div>
+	</div>
+
+	<div id="form-box">
+		<form>
+		  <div>
+		    <span>Type</span>
+		    <br>
+		      <select name="type">
+		      	<option selected disabled>Select type...</option>
+		        <option value="food">Food</option>
+		        <option value="electronics">Electronics</option>
+		        <option value="trip">Trip</option>
+		        <option value="other">Other</option>
+		      </select>
+		  </div>
+		  
+		  <div>
+		    <span>Name</span>
+		    <br><input type="text" name="item-name" placeholder="What did you spend on?">
+		  </div>
+		  
+		  <div>
+		    <span>Date</span>
+		    <br><input type="date" name="date">
+		  </div>
+		  
+		  <div>
+		    <span>Amount</span>
+		    <br><input type="number" name="amount" placeholder="How much?">
+		  </div>
+		</form>
+	</div>
+
+	<div id="button"><span>Add</span></div>
+
+	<table>
+	  <tr>
+	    <th id="type">Type</th>
+	    <th>Name</th>
+	    <th id="date">Date</th>
+	    <th id="amount">Amount</th>
+	  </tr>
+	  <tr id="if-empty">
+	    <td colspan="4"><span>Your added expenses will show up here</span></td>
+	  </tr>
+	</table>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+			integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			crossorigin="anonymous"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+* {
+  font-family: 'Archivo Narrow', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1, h2 {
+  color: #F5F7FA;
+  text-align: center;
+  text-shadow: -1px 0 #6B6B6B, 0 1px #6B6B6B, 1px 0 #6B6B6B, 0 -1px #6B6B6B;
+}
+  
+h1 {
+  margin-top: 40px;
+  font-size: 2.5em;
+}
+
+h2 {
+  font-weight: 100;
+  width: 650px;
+  background-color: #949AB9;
+  text-align: center;
+}
+
+.container {
+  text-align: center;
+  margin-bottom: 0px;
+  margin-top: 20px;
+}
+
+.container div {
+  display: inline-block;
+}
+
+#pig {
+  text-align: center;
+  text-shadow: -0.5px 0 #A8425A, 0 0.5px #A8425A, 0.5px 0 #A8425A, 0 0.5px #A8425A;
+  color: #D2748A;
+}
+
+body {
+  background: #9AABFF;
+}
+  
+table {
+  text-align: left;
+  width: 640px;
+  margin: 30px auto;
+  border-radius: 3px;
+  background-color: #fff;
+}
+
+table th {
+  padding: 10px;
+}
+
+table tr:nth-child(odd) {
+  background-color: #F5F7FA;
+}
+
+table td {
+  padding: 10px 15px;
+  color: #434A54;
+}
+
+
+.amount {
+  color: #DA4453;
+  text-align: right;
+}
+    
+#button {
+  position: relative;
+  top: 0;
+  color: #F5F7FA;
+  padding: 5px;
+  text-align: center;
+  line-height: 24px;
+  width: 150px;
+  background-color: #4FC1E9;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 25px auto;
+  box-shadow: 0 3px #4A89DC;
+  transition: 0.1s ease;
+}
+
+#button:active {
+  position: relative;
+  box-shadow: 0 0px #4A89DC;
+  top: 3px;
+  box-shadow: 0 0;
+}
+
+#form-box {
+  width: 650px;
+  margin: auto;
+  padding-left: 15px;
+  background-color: #D2D5E4;
+}
+
+form {
+  color: #6B6B6B;
+}
+
+form select, input {
+  margin-bottom: 25px;
+  color: #434A54;
+  padding: 5px;
+  width: 200px;
+  border-radius: 6px;
+  border: 0; 
+}
+
+form select, input:active {
+  transition: 0.2s ease;
+}
+
+form div {
+  display: inline-block;
+  margin-right: 40px;
+  margin-left: 55px;
+  margin-top: 10px;
+}
+
+form span {
+  font-size: 1.2em;
+  font-weight: 100;
+  display: inline-block;
+}
+
+#type {
+  width: 50px;
+}
+  
+#date {
+  width: 141px;
+}
+  
+#amount {
+  width: 100px;
+}
+    
+#if-empty {
+  text-align: center;
+}
+    
+.center {
+  margin: auto;
+  text-align: center;
+}
