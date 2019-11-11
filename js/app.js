@@ -24,16 +24,16 @@ $(document).ready(function (){
     
     switch( d[2].substring(1) ) {//We can use the string of the day (dd format) to access the last number, which determines what we append...
       case '1':
-        formattedDay = parseInt(d[2]) + "st"; //1st, 21st, etc
+        formattedDay = parseInt(d[2]) + "st, " + parseInt(d[0]); //1st, 21st, etc
         break;        
       case '2':
-        formattedDay = parseInt(d[2]) + "nd"; //2nd
+        formattedDay = parseInt(d[2]) + "nd, " + parseInt(d[0]); //2nd
         break;        
       case '3':
-        formattedDay = parseInt(d[2]) + "rd"; //etc…
+        formattedDay = parseInt(d[2]) + "rd, " + parseInt(d[0]); //etc…
         break;  
       default:
-        formattedDay = parseInt(d[2]) + "th";
+        formattedDay = parseInt(d[2]) + "th, " + parseInt(d[0]);
     }
     //Add a space and the day, now correctly appended
     formattedDate += ' ' + formattedDay;

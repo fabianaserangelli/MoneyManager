@@ -67,7 +67,7 @@ table td {
 
 .amount {
   color: #DA4453;
-  text-align: right;
+  text-align: left;
 }
     
 #button {
@@ -135,18 +135,14 @@ form span {
 }
   
 #date {
-  width: 141px;
+  width: 180px;
 }
   
 #amount {
+  text-align: left;
   width: 100px;
 }
     
 #if-empty {
-  text-align: center;
-}
-    
-.center {
-  margin: auto;
   text-align: center;
 }
