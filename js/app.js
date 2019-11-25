@@ -82,6 +82,7 @@ $(document).ready(function () {
       $amount1.val(null)
       $name1.val(null)
       $("#if-empty").remove()
+      flag1 = false
     }
 
     if(form_validated && flag2) {
@@ -90,6 +91,7 @@ $(document).ready(function () {
       $amount2.val(null)
       $name2.val(null)
       $("#if-empty").remove()
+      flag2 = false
     }
   })
 })
