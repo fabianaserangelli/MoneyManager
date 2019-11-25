@@ -23,6 +23,19 @@ h2 {
   text-align: center;
 }
 
+#expense-income {
+  margin-top: 10px;
+  text-align: center;
+}
+
+#expense-income > input[type=radio] {
+  margin: 0 10px 0 10px;
+}
+
+.toHide {
+  display: none;
+}
+
 .container {
   text-align: center;
   margin-bottom: 0px;
@@ -31,6 +44,10 @@ h2 {
 
 .container div {
   display: inline-block;
+}
+
+#ei-2 {
+  display: none;
 }
 
 #pig {
@@ -65,8 +82,13 @@ table td {
 }
 
 
-.amount {
+.amount1 {
   color: #DA4453;
+  text-align: left;
+}
+
+.amount2 {
+  color:  #228B22;
   text-align: left;
 }
     
@@ -93,18 +115,35 @@ table td {
   box-shadow: 0 0;
 }
 
-#form-box {
+#form-box-1 {
   width: 650px;
   margin: auto;
   padding-left: 15px;
   background-color: #D2D5E4;
 }
 
+#form-box-2 {
+  width: 650px;
+  margin: auto;
+  padding-left: 15px;
+  background-color: #D2D5E4;
+  display: none;
+}
+
 form {
   color: #6B6B6B;
 }
 
-form select, input {
+form select {
+  margin-bottom: 25px;
+  color: #434A54;
+  padding: 5px;
+  width: 200px;
+  border-radius: 6px;
+  border: 0; 
+}
+
+form input {
   margin-bottom: 25px;
   color: #434A54;
   padding: 5px;

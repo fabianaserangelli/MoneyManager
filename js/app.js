@@ -1,74 +1,93 @@
-//jQuery
+// jQuery
  
-$(document).ready(function (){
+$(document).ready(function () {
+
+  var flag1 = false
+  var flag2 = false
   
-  //Variable declarations that use or refer to jquery should be INSIDE the ready function to make sure jquery is instanciated. 
-  $name = $('input[name="item-name"'); //notice the different declaration…
-  $amount = $('input[name="amount"'); 
-  $type = $('select[name="type"');
-  $date = $('input[name="date"');
+  // Variable declarations that use or refer to jQuery should be INSIDE the ready function to make sure jquery is instanciated
+
+  $name1 = $('input[name="item-name-1"')
+  $amount1 = $('input[name="amount-1"') 
+  $type1 = $('select[name="type-1"')
+  $date1 = $('input[name="date-1"')
+
+  $name2 = $('input[name="item-name-2"')
+  $amount2 = $('input[name="amount-2"') 
+  $type2 = $('select[name="type-2"')
+  $date2 = $('input[name="date-2"')
   
   var formatDate = function(d) {
-    //2014-07-09
-    var d = d.split('-');//Since we know the value comes yyyy-mm-dd…
-    
-    var dt = new Date(d[0],d[1],d[2]);//Note: The month is off by +1 - for JS Date object, 
-    
-    var formattedDate = '';
-    
-    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];//Now we can get the month like this:
-    
-    formattedDate += months[ dt.getMonth()-1 ]; //Months are 0-11 for getDate
 
-    var formattedDay;//We are gonna store the formatted day here.
+    //2019-07-09
+
+    var d = d.split('-') // Value comes yyyy-mm-dd…
     
-    switch( d[2].substring(1) ) {//We can use the string of the day (dd format) to access the last number, which determines what we append...
+    var dt = new Date(d[0],d[1],d[2]) // Note: The month is off by +1 - for JS Date object, 
+    
+    var formattedDate = ''
+    
+    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] // Now we can get the month like this:
+    
+    formattedDate += months[ dt.getMonth()-1 ] // Months are 0-11 for getDate
+
+    var formattedDay
+    
+    switch( d[2].substring(1) ) {
       case '1':
-        formattedDay = parseInt(d[2]) + "st, " + parseInt(d[0]); //1st, 21st, etc
-        break;        
+        formattedDay = parseInt(d[2]) + "st, " + parseInt(d[0]) // 1st, 21st, etc
+        break
       case '2':
-        formattedDay = parseInt(d[2]) + "nd, " + parseInt(d[0]); //2nd
-        break;        
+        formattedDay = parseInt(d[2]) + "nd, " + parseInt(d[0]) // 2nd
+        break
       case '3':
-        formattedDay = parseInt(d[2]) + "rd, " + parseInt(d[0]); //etc…
-        break;  
+        formattedDay = parseInt(d[2]) + "rd, " + parseInt(d[0]) // etc...
+        break
       default:
-        formattedDay = parseInt(d[2]) + "th, " + parseInt(d[0]);
+        formattedDay = parseInt(d[2]) + "th, " + parseInt(d[0])
     }
-    //Add a space and the day, now correctly appended
-    formattedDate += ' ' + formattedDay;
-    //Return nice formatted date!
-    return formattedDate;
+    formattedDate += ' ' + formattedDay
+    return formattedDate
   }
-  
-  //Notice the $varname - Now each of these is is a jquery object corresponding to the DOM element and can be used to call the .val() method directly at any time. The way you had it before would only grab the value at the time of the declarations - ie before the values are set.
-  
-  $('#button').click(function () {
-    // Making it always add a icon in the type row
-    // var type_icon; //Store the html fragment to a variable when needed.
-    // if ($type.val() == 'food') {
-    //   // type_icon = "<i class='fa fa-credit-card'></i>";
 
-    // } else if ($type.val() == 'electronics') {
-    //   // type_icon = "<i class='fa fa-money'></i>";
-    // } else if ($type.val() == 'trip') {
-    //   // type_icon = "<i class='fa fa-bitcoin'></i>";
-    // } else if ($type.val() == 'other') {
-    //   // type_icon = "<i class='fa fa-question-circle'></i>";
-    // }
+  $('#radio1').click(function() {
+
+     $('#ei-2').hide().slideUp("slow")
+     $('#form-box-2').hide().slideUp("slow")
+     $('#ei-1').slideDown()
+     $('#form-box-1').slideDown()
+
+     flag1 = true
+  })
+
+  $('#radio2').click(function() {
+
+     $('#ei-1').hide().slideUp("slow")
+     $('#form-box-1').hide().slideUp("slow")
+     $('#ei-2').slideDown()
+     $('#form-box-2').slideDown()
+
+     flag2 = true
+  })
+
+  $('#button').click(function() {
     
-    var form_validated = true;
-    // //Add your validation tests, have them set form_validated to false if they fail
-    // //TODO
-    
-    if(form_validated) {
-      //Now we can use our references we made before
-      $("table tr:first").after('<tr><td>'+$type.val()+'</td><td>'+$name.val()+'</td><td>'+formatDate($date.val())+'</td><td class="amount">$'+$amount.val()+'</td></tr>');
-      $date.val(null);
-      $amount.val(null);
-      $name.val(null);
-      $("#if-empty").remove();
-    };
-  });
-  
-});
+    var form_validated = true
+      
+    if(form_validated && flag1) {
+      $("table tr:first").after('<tr><td>'+$type1.val()+'</td><td>'+$name1.val()+'</td><td>'+formatDate($date1.val())+'</td><td class="amount1">- $'+$amount1.val()+'</td></tr>') 
+      $date1.val(null)
+      $amount1.val(null)
+      $name1.val(null)
+      $("#if-empty").remove()
+    }
+
+    if(form_validated && flag2) {
+      $("table tr:first").after('<tr><td>'+$type2.val()+'</td><td>'+$name2.val()+'</td><td>'+formatDate($date2.val())+'</td><td class="amount2">+ $'+$amount2.val()+'</td></tr>') 
+      $date2.val(null)
+      $amount2.val(null)
+      $name2.val(null)
+      $("#if-empty").remove()
+    }
+  })
+})
