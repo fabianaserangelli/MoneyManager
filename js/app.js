@@ -52,22 +52,24 @@ $(document).ready(function () {
 
   $('#radio1').click(function() {
 
-     $('#ei-2').hide().slideUp("slow")
-     $('#form-box-2').hide().slideUp("slow")
-     $('#ei-1').slideDown()
-     $('#form-box-1').slideDown()
+    $('#button').show()
+    $('#ei-2').hide().slideUp("slow")
+    $('#form-box-2').hide().slideUp("slow")
+    $('#ei-1').slideDown()
+    $('#form-box-1').slideDown()
 
-     flag1 = true
+    flag1 = true
   })
 
   $('#radio2').click(function() {
 
-     $('#ei-1').hide().slideUp("slow")
-     $('#form-box-1').hide().slideUp("slow")
-     $('#ei-2').slideDown()
-     $('#form-box-2').slideDown()
+    $('#button').show()
+    $('#ei-1').hide().slideUp("slow")
+    $('#form-box-1').hide().slideUp("slow")
+    $('#ei-2').slideDown()
+    $('#form-box-2').slideDown()
 
-     flag2 = true
+    flag2 = true
   })
 
   $('#button').click(function() {
