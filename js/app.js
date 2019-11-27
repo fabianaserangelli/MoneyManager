@@ -1,11 +1,14 @@
 // jQuery
- 
+var totalAmount = 0
+
 $(document).ready(function () {
 
   var flag1 = false
   var flag2 = false
   
   // Variable declarations that use or refer to jQuery should be INSIDE the ready function to make sure jquery is instanciated
+
+  // $balance = $('#total-balance')
 
   $name1 = $('input[name="item-name-1"')
   $amount1 = $('input[name="amount-1"') 
@@ -59,6 +62,7 @@ $(document).ready(function () {
     $('#form-box-1').slideDown()
 
     flag1 = true
+    flag2 = false
   })
 
   $('#radio2').click(function() {
@@ -70,6 +74,7 @@ $(document).ready(function () {
     $('#form-box-2').slideDown()
 
     flag2 = true
+    flag1 = false
   })
 
   $('#button').click(function() {
@@ -77,21 +82,37 @@ $(document).ready(function () {
     var form_validated = true
       
     if(form_validated && flag1) {
-      $("table tr:first").after('<tr><td>'+$type1.val()+'</td><td>'+$name1.val()+'</td><td>'+formatDate($date1.val())+'</td><td class="amount1">- $'+$amount1.val()+'</td></tr>') 
+      $("table tr:first").after('<tr><td>'+$type1.val()+'</td><td>'+$name1.val()+'</td><td>'+formatDate($date1.val())+'</td><td class="amount1">- $'+$amount1.val()+'</td></tr>')
+      totalAmount = parseFloat(totalAmount) - parseFloat($amount1.val())
+      if (totalAmount < 0) {
+        $('#total-balance').text('- $' + Math.abs(totalAmount))
+      } else {
+        $('#total-balance').text('$' + totalAmount)
+      }
       $date1.val(null)
       $amount1.val(null)
       $name1.val(null)
       $("#if-empty").remove()
-      flag1 = false
+
+      //flag1 = false
     }
 
     if(form_validated && flag2) {
       $("table tr:first").after('<tr><td>'+$type2.val()+'</td><td>'+$name2.val()+'</td><td>'+formatDate($date2.val())+'</td><td class="amount2">+ $'+$amount2.val()+'</td></tr>') 
+      // console.log(typeof(totalAmount))
+      // console.log(typeof($amount2.val()))
+      totalAmount = parseFloat(totalAmount) + parseFloat($amount2.val())
+      if (totalAmount < 0) {
+        $('#total-balance').text('- $' + Math.abs(totalAmount))
+      } else {
+        $('#total-balance').text('$' + totalAmount)
+      }
       $date2.val(null)
       $amount2.val(null)
       $name2.val(null)
       $("#if-empty").remove()
-      flag2 = false
+
+      //flag2 = false
     }
   })
 })
