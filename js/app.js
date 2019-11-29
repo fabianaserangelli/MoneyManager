@@ -3,7 +3,7 @@ var totalAmount = 0
 
 $(document).ready(function () {
 
-  var flag1 = false
+  var flag1 = true
   var flag2 = false
   
   // Variable declarations that use or refer to jQuery should be INSIDE the ready function to make sure jquery is instanciated
@@ -85,9 +85,9 @@ $(document).ready(function () {
       $("table tr:first").after('<tr><td>'+$type1.val()+'</td><td>'+$name1.val()+'</td><td>'+formatDate($date1.val())+'</td><td class="amount1">- $'+$amount1.val()+'</td></tr>')
       totalAmount = parseFloat(totalAmount) - parseFloat($amount1.val())
       if (totalAmount < 0) {
-        $('#total-balance').text('- $' + Math.abs(totalAmount))
+        $('#total-balance').text('Total balance: - $' + Math.abs(totalAmount))
       } else {
-        $('#total-balance').text('$' + totalAmount)
+        $('#total-balance').text('Total balance: $' + totalAmount)
       }
       $date1.val(null)
       $amount1.val(null)
@@ -103,9 +103,9 @@ $(document).ready(function () {
       // console.log(typeof($amount2.val()))
       totalAmount = parseFloat(totalAmount) + parseFloat($amount2.val())
       if (totalAmount < 0) {
-        $('#total-balance').text('- $' + Math.abs(totalAmount))
+        $('#total-balance').text('Total balance: - $' + Math.abs(totalAmount))
       } else {
-        $('#total-balance').text('$' + totalAmount)
+        $('#total-balance').text('Total balance: $' + totalAmount)
       }
       $date2.val(null)
       $amount2.val(null)

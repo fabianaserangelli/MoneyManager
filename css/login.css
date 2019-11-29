@@ -1,0 +1,100 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #f2f2f2;
+  color: #333333;
+}
+
+div {
+  display: block;
+}
+
+/*#container-home {
+  width: 800px;
+  min-height: 300px;
+  background: #ffffff;
+  margin: auto;
+  padding: 40px 50px;
+}*/
+
+#container-form {
+  width: 400px;
+  background: #ffffff;
+  text-align: center;
+  /*vertical-align: center;*/
+  /*margin: auto;*/
+  border-radius: 2  px;
+  padding: 40px 50px;
+  /*box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);*/
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.input_wrap {
+  padding: 10px 0 0 0;
+  margin-bottom: 35px;
+  border-bottom: 2px solid #adadad;
+}
+
+.input_wrap_sel {
+    border-bottom: 2px solid #333333;
+}
+
+input::placeholder {
+  color: #adadad;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+input {
+  height: 45px;
+  width: 100%;
+  background: transparent;
+  display: block;
+  /*padding: 0 5px 0 45px;*/
+  padding: 0 5px;
+  color: #555555;
+  font-size: 15px;
+  outline: none;
+  border: none;
+  overflow: visible;
+}
+
+#container-button {
+  width: 300px;
+}
+
+button {
+  font-size: 15px;
+  color: #ffffff;
+  text-transform: uppercase;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+  margin: 10px 0;
+  background: #D2748A;
+  /*background: -webkit-linear-gradient(left, #21d4fd, #b721ff);;*/
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+
+#signup_option {
+  font-size: 13px;
+  text-align: center;
+  margin: 5px 0 0 0;
+}
+
+/*#container-logout {
+  float: right;
+}*/

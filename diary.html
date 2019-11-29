@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Money Diary</title>
+	<link href="https://fonts.googleapis.com/css?family=Archivo+Narrow&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+
+<body>
+	<div id="logo">
+		<h2 id="title">Money Diary</h2>
+		<h4 id="pig">(´・(oo)・｀) oink oink</h4>
+	</div>
+	
+
+	<button id="logout" onclick="location.href='index.html'"><span>Sign out</span></button>
+
+	<section id="container-form">
+
+		<div id="balance">
+			<h3 id="total-balance">Total balance: $0.00</h3>
+		</div>
+
+		<div id="expense-income">
+			<input id="radio1" type="radio" name="type-balance" value="expense" checked>Expense
+			<input id="radio2" type="radio" name="type-balance" value="income">Income
+		</div>
+
+		
+		
+
+		<div id="ei-1" class="container">
+			<div>
+				<h3>Add a new expense</h3>
+			</div>
+		</div>
+
+		<div id="ei-2" class="container toHide">
+			<div>
+				<h3>Add a new income</h3>
+			</div>
+		</div>
+
+
+		<div id="form-box-1">
+			<form>
+			  <div>
+			    <span>Type</span>
+			    <br>
+			      <select name="type-1">
+			      	<option selected disabled>Select type...</option>
+			        <option value="Food">Food</option>
+			        <option value="Electronics">Electronics</option>
+			        <option value="Trip">Trip</option>
+			        <option value="Other">Other</option>
+			      </select>
+			  </div>
+			  
+			  <div>
+			    <span>Description</span>
+			    <br><input type="text" name="item-name-1" placeholder="Brief description of what you spent">
+			  </div>
+			  
+			  <div>
+			    <span>Date</span>
+			    <br><input type="date" name="date-1">
+			  </div>
+			  
+			  <div>
+			    <span>Amount</span>
+			    <br><input type="number" name="amount-1" placeholder="What was the amount?">
+			  </div>
+			</form>
+		</div>
+
+		<div id="form-box-2" class="toHide">
+			<form>
+			  <div>
+			    <span>Type</span>
+			    <br>
+			      <select name="type-2">
+			      	<option selected disabled>Select type...</option>
+			        <option value="Salary">Salary</option>
+			        <option value="Savings">Savings</option>
+			        <option value="Other">Other</option>
+			      </select>
+			  </div>
+			  
+			  <div>
+			    <span>Description</span>
+			    <br><input type="text" name="item-name-2" placeholder="Brief description of your income">
+			  </div>
+			  
+			  <div>
+			    <span>Date</span>
+			    <br><input type="date" name="date-2">
+			  </div>
+			  
+			  <div>
+			    <span>Amount</span>
+			    <br><input type="number" name="amount-2" placeholder="What was the amount?">
+			  </div>
+			</form>
+		</div>
+
+		<div id="button"><span>Add</span></div>
+
+		<table>
+		  <tr>
+		    <th id="type">Type</th>
+		    <th>Description</th>
+		    <th id="date">Date</th>
+		    <th id="amount">Amount</th>
+		  </tr>
+		  <tr id="if-empty">
+		    <td colspan="4"><span>Your balance will show up here</span></td>
+		  </tr>
+		</table>
+	</section>
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+			integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			crossorigin="anonymous"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+
+</body>
+
+</html>

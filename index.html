@@ -1,120 +1,28 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-	<title>Money Diary</title>
-	<link href="https://fonts.googleapis.com/css?family=Archivo+Narrow&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<title></title>
+	<meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
-
 <body>
 
-	<h1>Money Diary</h1>
-	<h3 id="pig">(´・(oo)・｀) oink oink</h3>
-
-	<div id="expense-income">
-		<input id="radio1" type="radio" name="type-balance" value="expense">Expense
-		<input id="radio2" type="radio" name="type-balance" value="income">Income
-	</div>
-
-	<div id="balance">
-		<h1 id="total-balance">$0.00</h1>
-	</div>
-	
-
-	<div id="ei-1" class="container toHide">
-		<div>
-			<h2>Add a new expense</h2>
-		</div>
-	</div>
-
-	<div id="ei-2" class="container toHide">
-		<div>
-			<h2>Add a new income</h2>
-		</div>
-	</div>
-
-
-	<div id="form-box-1" class="toHide">
-		<form>
-		  <div>
-		    <span>Type</span>
-		    <br>
-		      <select name="type-1">
-		      	<option selected disabled>Select type...</option>
-		        <option value="Food">Food</option>
-		        <option value="Electronics">Electronics</option>
-		        <option value="Trip">Trip</option>
-		        <option value="Other">Other</option>
-		      </select>
-		  </div>
-		  
-		  <div>
-		    <span>Description</span>
-		    <br><input type="text" name="item-name-1" placeholder="Brief description of what you spent">
-		  </div>
-		  
-		  <div>
-		    <span>Date</span>
-		    <br><input type="date" name="date-1">
-		  </div>
-		  
-		  <div>
-		    <span>Amount</span>
-		    <br><input type="number" name="amount-1" placeholder="What was the amount?">
-		  </div>
-		</form>
-	</div>
-
-	<div id="form-box-2" class="toHide">
-		<form>
-		  <div>
-		    <span>Type</span>
-		    <br>
-		      <select name="type-2">
-		      	<option selected disabled>Select type...</option>
-		        <option value="Salary">Salary</option>
-		        <option value="Savings">Savings</option>
-		        <option value="Other">Other</option>
-		      </select>
-		  </div>
-		  
-		  <div>
-		    <span>Description</span>
-		    <br><input type="text" name="item-name-2" placeholder="Brief description of your income">
-		  </div>
-		  
-		  <div>
-		    <span>Date</span>
-		    <br><input type="date" name="date-2">
-		  </div>
-		  
-		  <div>
-		    <span>Amount</span>
-		    <br><input type="number" name="amount-2" placeholder="What was the amount?">
-		  </div>
-		</form>
-	</div>
-
-	<div id="button" class="toHide"><span>Add</span></div>
-
-	<table>
-	  <tr>
-	    <th id="type">Type</th>
-	    <th>Description</th>
-	    <th id="date">Date</th>
-	    <th id="amount">Amount</th>
-	  </tr>
-	  <tr id="if-empty">
-	    <td colspan="4"><span>Your balance will show up here</span></td>
-	  </tr>
-	</table>
-
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
-			integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-			crossorigin="anonymous"></script>
-	<script type="text/javascript" src="js/app.js"></script>
+	<section id="container-form">
+            <div id="form">
+                <h1>Money Diary</h1>
+                <div class="input_wrap">
+                    <input id="email" type="text" name="email" placeholder="Email">
+                </div>
+                <div class="input_wrap">
+                    <input id="password" type="password" name="password" placeholder="Password">
+                </div>
+                <button id="login_button" onclick="location.href='diary.html'">Sign In</button>
+                <div id="signup_option">No account? <a href="register.html">Sign up here!</a></div>
+            </div>
+        </section>
+        <script src="js/lib/jquery.js" type="text/javascript"></script>
+        <script src="js/index.js" type="text/javascript"></script>
+        <script src="js/js.js" type="text/javascript" ></script>
 
 </body>
-
 </html>
