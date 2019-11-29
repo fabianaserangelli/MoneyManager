@@ -64,6 +64,10 @@ h1 {
   -moz-transform: translateX(-50%) translateY(-50%);
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
+  /* PARA EVITAR QUE NO CREZCA*/
+  height: 597px; /* or any value */
+  overflow-y: auto;
+  /*overflow: scroll;*/
 }
 
 #balance {
