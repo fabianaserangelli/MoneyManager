@@ -50,9 +50,37 @@ $('#signup_button').on('click', (function(event) {
 		$passwordconfirm2_empty.addClass('hidden')
 	}
 
-	if($name.val() != '' && $password.val() != '' && $email.val() != '' && $password_confirm.val() != '') {
-		location.href = 'index.html'
-	}
+	// // INICIO DE BACK //
+
+	// json_to_send = {
+	//     "name": $name,
+	//     "email": $email,
+	//     "password" : $password,
+	//     "password_confirm": $password_confirm
+ //  	}
+
+ //  	json_to_send = JSON.stringify(json_to_send);
+
+ //  	$.ajax({
+	//     // url: 'http://localhost:3000/users',
+	//     url: 'https://miniwebserverrx.herokuapp.com/users',
+	//     headers: {
+	//         'Content-Type':'application/json'
+	//     },
+	//     method: 'POST',
+	//     dataType: 'json',
+	//     data: json_to_send,
+	//     success: function(data){
+	//       alert("Successfully created");
+	//       console.log('success: ' + data);
+	//       window.location = 'index.html'
+	//     },
+	//     error: function(error_msg) {
+	//       alert((error_msg['responseText']));
+	//     }
+ //  	})
+
+	// // FIN DE BACK //
 
 	function validation_email(email) {
 		var regexp_email = /\S+@\S+\.\S+/

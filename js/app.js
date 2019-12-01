@@ -1,4 +1,3 @@
-// jQuery
 var totalAmount = 0
 
 $(document).ready(function () {
@@ -6,10 +5,6 @@ $(document).ready(function () {
   var flag1 = true
   var flag2 = false
   
-  // Variable declarations that use or refer to jQuery should be INSIDE the ready function to make sure jquery is instanciated
-
-  // $balance = $('#total-balance')
-
   $name1 = $('input[name="item-name-1"')
   $amount1 = $('input[name="amount-1"') 
   $type1 = $('select[name="type-1"')
@@ -93,14 +88,10 @@ $(document).ready(function () {
       $amount1.val(null)
       $name1.val(null)
       $("#if-empty").remove()
-
-      //flag1 = false
     }
 
     if(form_validated && flag2) {
       $("table tr:first").after('<tr><td>'+$type2.val()+'</td><td>'+$name2.val()+'</td><td>'+formatDate($date2.val())+'</td><td class="amount2">+ $'+$amount2.val()+'</td></tr>') 
-      // console.log(typeof(totalAmount))
-      // console.log(typeof($amount2.val()))
       totalAmount = parseFloat(totalAmount) + parseFloat($amount2.val())
       if (totalAmount < 0) {
         $('#total-balance').text('Total balance: - $' + Math.abs(totalAmount))
@@ -111,8 +102,6 @@ $(document).ready(function () {
       $amount2.val(null)
       $name2.val(null)
       $("#if-empty").remove()
-
-      //flag2 = false
     }
   })
 })
