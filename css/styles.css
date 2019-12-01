@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+/*#logo {
+  position: fixed;
+}*/
+
+
 #title {
   padding-left: 215px;
   padding-top: 20px;

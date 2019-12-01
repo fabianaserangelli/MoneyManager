@@ -13,16 +13,19 @@
                 <div class="input_wrap">
                     <input id="email" type="text" name="email" placeholder="Email">
                 </div>
+                <span id="email-empty" class="error hidden">Email can't be empty</span>
                 <div class="input_wrap">
                     <input id="password" type="password" name="password" placeholder="Password">
                 </div>
-                <button id="login_button" onclick="location.href='diary.html'">Sign In</button>
+                <span id="password-empty" class="error hidden">Password can't be empty</span>
+                <span id="credentials-incorrect" class="error hidden">The email or password is incorrect or doesn't exist</span>
+                <button id="login_button">Sign In</button>
                 <div id="signup_option">No account? <a href="register.html">Sign up here!</a></div>
             </div>
         </section>
         <script src="js/lib/jquery.js" type="text/javascript"></script>
-        <script src="js/index.js" type="text/javascript"></script>
-        <script src="js/js.js" type="text/javascript" ></script>
+        <script src="js/login.js" type="text/javascript"></script>
+        <!-- <script src="js/js.js" type="text/javascript" ></script> -->
 
 </body>
 </html>
