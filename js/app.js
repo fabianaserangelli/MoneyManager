@@ -246,7 +246,7 @@ function addExpense(Nature,Type, Description, Date1, Amount)
       "Nature": Nature,
       "Type": Type,
       "Description":Description,
-      "Date":JSON.stringify( Date1 ),
+      "Date":Date1,
       "Amount":Amount
     };
     json_to_send = JSON.stringify(json_to_send);
