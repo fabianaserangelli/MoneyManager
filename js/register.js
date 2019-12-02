@@ -1,4 +1,5 @@
 $('#signup_button').on('click', (function(event) {
+	
 	let $name = $('#name')
 	let $name_empty = $('#name-empty')
 	let $email = $('#email')
@@ -50,35 +51,38 @@ $('#signup_button').on('click', (function(event) {
 		$passwordconfirm2_empty.addClass('hidden')
 	}
 
-	// // INICIO DE BACK //
+	// INICIO DE BACK //
 
-	// json_to_send = {
-	//     "name": $name,
-	//     "email": $email,
-	//     "password" : $password,
-	//     "password_confirm": $password_confirm
- //  	}
+	json_to_send = {
+	    "name": $name.val(),
+	    "email": $email.val(),
+	    "password" : $password.val()
+  	}
 
- //  	json_to_send = JSON.stringify(json_to_send);
+  	//alert($name);
 
- //  	$.ajax({
-	//     // url: 'http://localhost:3000/users',
-	//     url: 'https://miniwebserverrx.herokuapp.com/users',
-	//     headers: {
-	//         'Content-Type':'application/json'
-	//     },
-	//     method: 'POST',
-	//     dataType: 'json',
-	//     data: json_to_send,
-	//     success: function(data){
-	//       alert("Successfully created");
-	//       console.log('success: ' + data);
-	//       window.location = 'index.html'
-	//     },
-	//     error: function(error_msg) {
-	//       alert((error_msg['responseText']));
-	//     }
- //  	})
+  	json_to_send = JSON.stringify(json_to_send);
+
+
+
+  	$.ajax({
+	    // url: 'http://localhost:3000/users',
+	    url: 'https://miniwebserverrx.herokuapp.com/users',
+	    headers: {
+	        'Content-Type':'application/json'
+	    },
+	    method: 'POST',
+	    dataType: 'json',
+	    data: json_to_send,
+	    success: function(data){
+	      alert("Successfully created");
+	      console.log('success: ' + data);
+	      window.location = 'index.html'
+	    },
+	    error: function(error_msg) {
+	      //alert((error_msg['responseText']));
+	    }
+  	})
 
 	// // FIN DE BACK //
 
