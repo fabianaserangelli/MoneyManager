@@ -6,6 +6,7 @@ $('#login_button').on('click', (function(event) {
 	let $credentials_incorrect = $('#credentials-incorrect')
 
 	if($email.val() == '') {
+		$credentials_incorrect.addClass('hidden')
 		$email_empty.removeClass('hidden')
 	} else {
 		if(validation_email($email.val())) {
@@ -17,6 +18,7 @@ $('#login_button').on('click', (function(event) {
 	}
 
 	if($password.val() == '') {
+		$credentials_incorrect.addClass('hidden')
 		$password_empty.removeClass('hidden')
 	} else {
 		$password_empty.addClass('hidden')

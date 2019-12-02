@@ -4,6 +4,7 @@ $('#signup_button').on('click', (function(event) {
 	let $name_empty = $('#name-empty')
 	let $email = $('#email')
 	let $email_empty = $('#email-empty')
+	let $email2_empty = $('#email2-empty')
 	let $password = $('#password')
 	let $password_empty = $('#password-empty')
 	let $password_confirm = $('#password-confirm')
@@ -23,11 +24,14 @@ $('#signup_button').on('click', (function(event) {
 	}
 
 	if($email.val() == '') {
+		$email2_empty.addClass('hidden')
 		$email_empty.removeClass('hidden')
 	} else {
 		if(validation_email($email.val())) {
+			$email2_empty.addClass('hidden')
 			$email_empty.addClass('hidden')
 		} else {
+			$email2_empty.addClass('hidden')
 			$email_empty.removeClass('hidden')
 			$email_empty.text('This email is not valid')
 		}
@@ -80,7 +84,9 @@ $('#signup_button').on('click', (function(event) {
 	      window.location = 'index.html'
 	    },
 	    error: function(error_msg) {
-	      //alert((error_msg['responseText']));
+	    	if($name.val() != '' && $email.val() != '' && $password.val() != '' && $password_confirm.val() != '') {
+	    		$email2_empty.removeClass('hidden')
+	    	}
 	    }
   	})
 

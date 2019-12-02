@@ -1,38 +1,28 @@
 var totalAmount = 0
 var amountFood = 0
+var amountElectronics = 0
+var amountTrip = 0
+var amountTransport = 0
+var amountBeauty = 0
+var amountClothing = 0
+var amountEducation = 0
+var amountBooks = 0
+var amountMedicine = 0
+var amountParty = 0
+var amountHobbies = 0
+var amountOther = 0
 
 var token = localStorage.getItem('token');
 if (token) {
-  token = token.replace(/^"(.*)"$/, '$1'); // Remove quotes from token start/end.
+  token = token.replace(/^"(.*)"$/, '$1');
 }
-
 
 $(document).ready(function () {
 
-  console.log(amountFood)
-  //cargar todo
   loadExpenses()
 
-    new Chart($('#pie-chart'), {
-    type: 'pie',
-    data: {
-      labels: ["Africa", "Asia", "Europe", "Latin America", "Food"],
-      datasets: [{
-        label: "Population (millions)",
-        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-        data: [2478,5267,734,784,parseFloat(amountFood)]
-      }]
-    },
-    options: {
-      title: {
-        display: true,
-        text: 'Expenses'
-      }
-    }
-});
-
-  var flag1 = true  //Expense
-  var flag2 = false //Income
+  var flag1 = true  // Expense
+  var flag2 = false // Income
   
   $name1 = $('input[name="item-name-1"')
   $amount1 = $('input[name="amount-1"') 
@@ -44,35 +34,21 @@ $(document).ready(function () {
   $type2 = $('select[name="type-2"')
   $date2 = $('input[name="date-2"')
 
-  // $modal = $('#modal')
-  // $graphbtn = $('#graph-btn')
-  // $close = $('#close')
-
   var formatDate = function(d) {
 
-    //2019-07-09
-
     var d = d.split('-') // Value comes yyyy-mm-dd…
-    
     var dt = new Date(d[0],d[1],d[2]) // Note: The month is off by +1 - for JS Date object, 
-    
     var formattedDate = ''
-    
     var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] // Now we can get the month like this:
-    
-    if(dt.getMonth()-1 != -1)
-    {
+    if(dt.getMonth()-1 != -1) {
       formattedDate += months[ dt.getMonth()-1 ] // Months are 0-11 for getDate
-    }
-    else
-    {
+    } else {
       formattedDate += 'December'
     }
 
     var formattedDay
 
-    
-    switch( d[2].substring(1) ) {
+    switch(d[2].substring(1)) {
       case '1':
         formattedDay = parseInt(d[2]) + "st, " + parseInt(d[0]) // 1st, 21st, etc
         break
@@ -87,6 +63,7 @@ $(document).ready(function () {
     }
     formattedDate += ' ' + formattedDay
     return formattedDate
+
   }
 
   $('#radio1').click(function() {
@@ -99,6 +76,7 @@ $(document).ready(function () {
 
     flag1 = true
     flag2 = false
+
   })
 
   $('#radio2').click(function() {
@@ -111,6 +89,7 @@ $(document).ready(function () {
 
     flag2 = true
     flag1 = false
+
   })
 
   $('#button').click(function() {
@@ -118,7 +97,6 @@ $(document).ready(function () {
     var form_validated = true
       
     if(form_validated && flag1) {
-      
       addExpense(false,$type1.val(), $name1.val(), formatDate($date1.val()), $amount1.val())
       $("table tr:first").after('<tr><td>'+$type1.val()+'</td><td>'+$name1.val()+'</td><td>'+formatDate($date1.val())+'</td><td class="amount1">- $'+$amount1.val()+'</td></tr>')
       totalAmount = parseFloat(totalAmount) - parseFloat($amount1.val())
@@ -148,66 +126,109 @@ $(document).ready(function () {
       $("#if-empty").remove()
     }
   })
+
 })
 
 $('#graph-btn').click(function() {
+
   $('#modal').css("display", "block");
+
+  new Chart($('#pie-chart'), {
+    type: 'pie',
+    data: {
+      labels: ["Food", "Electronics", "Trip", "Transport", "Beauty", "Clothing", 
+      "Education", "Books", "Medicine", "Party", "Hobbies", "Other"],
+      datasets: [{
+        label: "Population (millions)",
+        backgroundColor: ["#FF8C8C", "#FFBAEE", "#C9A0F3", "#8CB6D4", 
+        "#B2F188", "#BEFEFB", "#F5E4AD", "#FFBC80", "#6565E2", "#A826A8", 
+        "#E6313C", "#C4C442"],
+        data: [Math.abs(amountFood), Math.abs(amountElectronics), Math.abs(amountTrip), Math.abs(amountTransport), 
+        Math.abs(amountBeauty), Math.abs(amountClothing), Math.abs(amountEducation), 
+        Math.abs(amountBooks), Math.abs(amountMedicine), Math.abs(amountParty), 
+        Math.abs(amountHobbies), Math.abs(amountOther)]
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Expenses'
+      }
+    }
+   });
+
 })
 
 $('#close').click(function() {
   $('#modal').css("display", "none");
 })
 
-// window.click(function() {
-//   if(event.target == $('#modal')) {
-//     $('#modal').css("display", "none");
-//   }
-// })
-
 function loadExpenses() {
-  console.log("Entre")
   $.ajax({
-    //url: 'http://localhost:3000/todos',
-     url: 'https://miniwebserverrx.herokuapp.com/expenses',
+    url: 'https://miniwebserverrx.herokuapp.com/expenses',
     headers: {
         'Content-Type':'application/json',
         'Authorization': 'Bearer ' + token
     },
     method: 'GET',
     dataType: 'json',
-    success: function(data){
-      console.log(data)
-
+    success: function(data) {
       for( let i = 0; i < data.length; i++) {
-        // aqui va su código para agregar los elementos de la lista
-        //console.log(data[i].description)
-        // algo asi:
-        //addExpense(data[i]._id, data[i].description, data[i].completed)
-        // no tienen que usar la funcion de addTodo, es un ejemplo
-
-        if(data[i].Nature == true)
-        {
+        if(data[i].Nature == true) {
           $("table tr:first").after('<tr><td>'+data[i].Type+'</td><td>'+data[i].Description+'</td><td>'+data[i].Date+'</td><td class="amount2">+ $'+data[i].Amount+'</td></tr>')
+          totalAmount = parseFloat(totalAmount) + parseFloat(data[i].Amount)
           if (totalAmount < 0) {
             $('#total-balance').text('Total balance: - $' + Math.abs(totalAmount))
           } else {
             $('#total-balance').text('Total balance: $' + totalAmount)
           }
-        }
-        else
-        {
+        } else {
           $("table tr:first").after('<tr><td>'+data[i].Type+'</td><td>'+data[i].Description+'</td><td>'+data[i].Date+'</td><td class="amount1">- $'+Math.abs(data[i].Amount)+'</td></tr>')
+          totalAmount = parseFloat(totalAmount) + -Math.abs(parseFloat(data[i].Amount))
           if(data[i].Type == 'Food') {
             amountFood += data[i].Amount
           }
+          if(data[i].Type == 'Electronics') {
+            amountElectronics += data[i].Amount
+          }
+          if(data[i].Type == 'Trip') {
+            amountTrip += data[i].Amount
+          }
+          if(data[i].Type == 'Transport') {
+            amountTransport += data[i].Amount
+          }
+          if(data[i].Type == 'Beauty') {
+            amountBeauty += data[i].Amount
+          }
+          if(data[i].Type == 'Clothing') {
+            amountClothing += data[i].Amount
+          }
+          if(data[i].Type == 'Education') {
+            amountEducation += data[i].Amount
+          }
+          if(data[i].Type == 'Books') {
+            amountBooks += data[i].Amount
+          }
+          if(data[i].Type == 'Medicine') {
+            amountMedicine += data[i].Amount
+          }
+          if(data[i].Type == 'Party') {
+            amountParty += data[i].Amount
+          }
+          if(data[i].Type == 'Hobbies') {
+            amountHobbies += data[i].Amount
+          }
+          if(data[i].Type == 'Other') {
+            amountOther += data[i].Amount
+          }
+
           if (totalAmount < 0) {
             $('#total-balance').text('Total balance: - $' + Math.abs(totalAmount))
           } else {
             $('#total-balance').text('Total balance: $' + totalAmount)
           }
-        }
 
-        totalAmount = parseFloat(totalAmount) - parseFloat(data[i].Amount)
+        }
 
       }
     },
@@ -230,8 +251,7 @@ function addExpense(Nature,Type, Description, Date1, Amount)
     };
     json_to_send = JSON.stringify(json_to_send);
     $.ajax({
-      //url: 'http://localhost:3000/todos',
-       url: 'https://miniwebserverrx.herokuapp.com/expenses',
+      url: 'https://miniwebserverrx.herokuapp.com/expenses',
       headers: {
           'Content-Type':'application/json',
           'Authorization': 'Bearer ' + token
@@ -240,8 +260,7 @@ function addExpense(Nature,Type, Description, Date1, Amount)
       dataType: 'json',
       data: json_to_send,
       success: function(data){
-        console.log(data)
-        
+       location.reload()
       },
       error: function(error_msg) {
         alert((error_msg['responseText']));
