@@ -84,7 +84,7 @@ $('#signup_button').on('click', (function(event) {
 	      window.location = 'index.html'
 	    },
 	    error: function(error_msg) {
-	    	if($name.val() != '' && $email.val() != '' && $password.val() != '' && $password_confirm.val() != '') {
+	    	if($email.val() != '') {
 	    		$email2_empty.removeClass('hidden')
 	    	}
 	    }
